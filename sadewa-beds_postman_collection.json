@@ -1,0 +1,59 @@
+
+{
+  "info": {
+    "name": "Sadewa-Beds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Public - GET /api/rooms",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/rooms"
+      }
+    },
+    {
+      "name": "Public - GET /api/rooms/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/rooms/1"
+      }
+    },
+    {
+      "name": "Auth - POST /api/login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key":"Content-Type","value":"application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"username\": \"admin\", \"password\": \"Admin123!\" }"
+        },
+        "url": "{{base_url}}/api/login"
+      }
+    },
+    {
+      "name": "Admin - PUT /api/rooms/:id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key":"Content-Type","value":"application/json"},
+          {"key":"Authorization","value":"Bearer {{token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"status\": \"tersedia\" }"
+        },
+        "url": "{{base_url}}/api/rooms/1"
+      }
+    }
+  ],
+  "variable": [
+    {"key":"base_url","value":"http://127.0.0.1:8000"},
+    {"key":"token","value":""}
+  ]
+}
