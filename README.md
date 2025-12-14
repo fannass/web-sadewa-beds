@@ -57,6 +57,34 @@ Rumah Sakit Khusus Ibu dan Anak (RSKIA) Sadewa menghadapi tantangan dalam menyam
 -   ✅ Antarmuka yang **responsif** dan mudah digunakan di berbagai perangkat
 -   ✅ Sistem **audit log** untuk melacak setiap perubahan status
 -   ✅ **Analytics** untuk analisis tingkat hunian kamar
+-   ✅ **Integrasi WhatsApp** untuk komunikasi lanjutan dengan petugas RS
+
+---
+
+## ⚠️ PENTING: Konsep Sistem
+
+### Sadewa Beds BUKAN Sistem Booking
+
+Sadewa Beds adalah **Sistem Informasi Ketersediaan Kamar** dengan jalur komunikasi resmi via WhatsApp.
+
+| ❌ BUKAN                       | ✅ ADALAH                      |
+| ------------------------------ | ------------------------------ |
+| Sistem booking/reservasi       | Sistem informasi ketersediaan  |
+| Menyimpan data pasien          | Hanya menampilkan status kamar |
+| Reservasi otomatis             | Komunikasi manual ke petugas   |
+| Sistem pembayaran              | Informasi publik gratis        |
+| Mengunci/mengurangi stok kamar | Informasi real-time saja       |
+
+### Fitur WhatsApp
+
+Fitur WhatsApp yang tersedia:
+
+-   **Jalur komunikasi** antara pengunjung dan petugas RS
+-   **Bukan booking otomatis** - hanya mengarahkan ke WhatsApp resmi RS
+-   **Pesan dapat dikustomisasi** oleh admin
+-   **Dapat diaktifkan/nonaktifkan** sesuai kebutuhan RS
+
+Semua komunikasi setelah klik tombol WhatsApp **di luar sistem** Sadewa Beds.
 
 ---
 
@@ -230,6 +258,20 @@ Menyediakan layanan informasi ketersediaan kamar rawat inap yang akurat, real-ti
 -   Distribusi per lantai
 -   Tingkat ketersediaan
 
+#### 6. Pengaturan Kontak (`/admin/settings/contact`)
+
+-   Konfigurasi nomor WhatsApp resmi RS
+-   Pesan default WhatsApp yang dapat disesuaikan
+-   Toggle aktif/nonaktif tombol WhatsApp di halaman publik
+-   Preview tampilan tombol WhatsApp
+
+#### 7. Ubah Password (`/admin/settings/password`)
+
+-   Form ubah password admin
+-   Validasi password saat ini
+-   Password baru minimal 8 karakter
+-   Konfirmasi password baru
+
 ### Admin Flow
 
 ```
@@ -237,11 +279,11 @@ Menyediakan layanan informasi ketersediaan kamar rawat inap yang akurat, real-ti
 │  Login  │ ──▶ │   Dashboard   │
 └─────────┘     └───────┬───────┘
                         │
-        ┌───────────────┼───────────────┐
-        ▼               ▼               ▼
-┌───────────────┐ ┌───────────┐ ┌───────────┐
-│Manajemen Kamar│ │ Audit Log │ │ Analytics │
-└───────┬───────┘ └───────────┘ └───────────┘
+        ┌───────────────┼───────────────┬───────────────┬───────────────┐
+        ▼               ▼               ▼               ▼               ▼
+┌───────────────┐ ┌───────────┐ ┌───────────┐ ┌─────────────────┐ ┌─────────────┐
+│Manajemen Kamar│ │ Audit Log │ │ Analytics │ │Pengaturan Kontak│ │Ubah Password│
+└───────┬───────┘ └───────────┘ └───────────┘ └─────────────────┘ └─────────────┘
         │
         ▼
 ┌───────────────┐
@@ -251,13 +293,27 @@ Menyediakan layanan informasi ketersediaan kamar rawat inap yang akurat, real-ti
 
 ### Fitur Admin
 
-| Fitur             | Deskripsi                         |
-| ----------------- | --------------------------------- |
-| **Quick Status**  | Ubah status kamar dengan 1 klik   |
-| **Audit Trail**   | Semua perubahan tercatat otomatis |
-| **Responsive**    | Dapat diakses dari mobile         |
-| **Dynamic Types** | Tipe kamar dapat dikelola         |
-| **Analytics**     | Visualisasi data dengan Chart.js  |
+| Fitur                 | Deskripsi                             |
+| --------------------- | ------------------------------------- |
+| **Quick Status**      | Ubah status kamar dengan 1 klik       |
+| **Audit Trail**       | Semua perubahan tercatat otomatis     |
+| **Responsive**        | Dapat diakses dari mobile             |
+| **Dynamic Types**     | Tipe kamar dapat dikelola             |
+| **Analytics**         | Visualisasi data dengan Chart.js      |
+| **WhatsApp Settings** | Konfigurasi nomor & pesan WhatsApp RS |
+| **Ubah Password**     | Keamanan akun admin                   |
+| **Lihat Website**     | Preview website publik langsung       |
+
+### Navigasi Admin ↔ Website
+
+Sistem menyediakan navigasi mudah antara dashboard admin dan website publik:
+
+| Lokasi          | Fitur                    | Aksi                                     |
+| --------------- | ------------------------ | ---------------------------------------- |
+| **Admin Panel** | Menu "Lihat Website"     | Kunjungi website publik (tanpa tab baru) |
+| **Website**     | Tombol "Dashboard Admin" | Kembali ke dashboard (jika admin login)  |
+
+> 💡 Tombol "Dashboard Admin" di website publik **hanya muncul** jika admin sedang login.
 
 ---
 
@@ -601,9 +657,42 @@ Aplikasi dapat diakses di: `http://127.0.0.1:8000`
     - Filter berdasarkan tanggal
 
 6. **Analytics**
+
     - Buka menu "Analytics"
     - Lihat grafik dan statistik
     - Analisis tingkat hunian
+
+7. **Pengaturan WhatsApp**
+
+    - Buka menu "Pengaturan Kontak"
+    - Isi **Nomor WhatsApp** dalam format internasional (tanpa +), contoh: `6281234567890`
+    - Isi **Pesan Default** yang akan muncul otomatis saat pengunjung klik tombol WhatsApp
+    - Aktifkan/nonaktifkan tombol WhatsApp dengan toggle
+    - Klik "Simpan Pengaturan"
+
+8. **Ubah Password**
+
+    - Buka menu "Ubah Password"
+    - Masukkan password saat ini
+    - Masukkan password baru (minimal 8 karakter)
+    - Konfirmasi password baru
+    - Klik "Ubah Password"
+
+9. **Lihat Website Publik**
+    - Klik menu "Lihat Website" di sidebar
+    - Website publik akan terbuka di halaman yang sama
+    - Untuk kembali ke admin, klik tombol "Dashboard Admin" di navbar website
+
+### Contoh URL WhatsApp yang Dihasilkan
+
+```
+https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20ketersediaan%20kamar%20rawat%20inap%20di%20RSKIA%20Sadewa.
+```
+
+Format URL:
+
+-   `https://wa.me/{nomor_whatsapp}` - Nomor WhatsApp tanpa tanda +
+-   `?text={pesan_encoded}` - Pesan yang sudah di-encode untuk URL
 
 ---
 
@@ -633,6 +722,34 @@ X-CSRF-TOKEN: {token}
     }
 }
 ```
+
+### Public Settings API (WhatsApp)
+
+Endpoint untuk mendapatkan konfigurasi WhatsApp publik:
+
+```http
+GET /api/public/settings
+```
+
+**Response (WhatsApp Aktif):**
+
+```json
+{
+    "whatsapp_enabled": true,
+    "whatsapp_url": "https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya..."
+}
+```
+
+**Response (WhatsApp Non-aktif):**
+
+```json
+{
+    "whatsapp_enabled": false,
+    "whatsapp_url": null
+}
+```
+
+> ⚠️ API ini tidak mengembalikan data sensitif seperti nomor WhatsApp mentah atau pesan asli.
 
 ---
 

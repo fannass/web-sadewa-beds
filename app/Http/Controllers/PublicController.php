@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Services\WhatsAppService;
 
 class PublicController extends Controller
 {
@@ -23,7 +24,9 @@ class PublicController extends Controller
             ->take(6)
             ->get();
 
-        return view('user.home', compact('stats', 'featuredRooms'));
+        $whatsapp = WhatsAppService::getPublicSettings();
+
+        return view('user.home', compact('stats', 'featuredRooms', 'whatsapp'));
     }
 
     /**
@@ -45,7 +48,9 @@ class PublicController extends Controller
 
         $floors = Room::distinct()->pluck('floor')->filter()->sort();
 
-        return view('user.rooms', compact('rooms', 'floors'));
+        $whatsapp = WhatsAppService::getPublicSettings();
+
+        return view('user.rooms', compact('rooms', 'floors', 'whatsapp'));
     }
 
     /**
@@ -61,7 +66,10 @@ class PublicController extends Controller
             ->take(3)
             ->get();
 
-        return view('user.detail', compact('room', 'similarRooms'));
+        $whatsapp = WhatsAppService::getPublicSettings();
+        $whatsappRoomLink = WhatsAppService::generateLink(null, $room->name);
+
+        return view('user.detail', compact('room', 'similarRooms', 'whatsapp', 'whatsappRoomLink'));
     }
 
     /**

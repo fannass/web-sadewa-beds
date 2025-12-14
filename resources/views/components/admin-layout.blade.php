@@ -240,6 +240,38 @@
                     </svg>
                     Analytics
                 </a>
+
+                <a href="{{ route('admin.settings.contact') }}"
+                    class="nav-item {{ request()->routeIs('admin.settings.contact') ? 'active' : '' }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                        </path>
+                    </svg>
+                    Pengaturan Kontak
+                </a>
+
+                <a href="{{ route('admin.settings.password') }}"
+                    class="nav-item {{ request()->routeIs('admin.settings.password') ? 'active' : '' }}">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z">
+                        </path>
+                    </svg>
+                    Ubah Password
+                </a>
+
+                <div class="border-t border-gray-100 my-3"></div>
+
+                <a href="{{ route('home') }}"
+                    class="nav-item text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                        </path>
+                    </svg>
+                    Lihat Website
+                </a>
             </nav>
 
             <div class="p-3 sm:p-4 border-t border-gray-100">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\RoomController;
+use App\Http\Controllers\API\PublicSettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::get('/rooms', [RoomController::class, 'index']);
 Route::get('/rooms/{id}', [RoomController::class, 'show']);
+Route::get('/public/settings', [PublicSettingsController::class, 'index']);
 
 // Auth routes
 Route::post('/login', [AuthController::class, 'login']);

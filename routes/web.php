@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\Admin\RoomTypeController;
 use App\Http\Controllers\Admin\AuditController;
 use App\Http\Controllers\Admin\AnalyticsController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
     // Analytics
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
+
+    // Settings
+    Route::get('/settings/contact', [SettingController::class, 'contact'])->name('settings.contact');
+    Route::put('/settings/contact', [SettingController::class, 'updateContact'])->name('settings.contact.update');
+    Route::get('/settings/password', [SettingController::class, 'password'])->name('settings.password');
+    Route::put('/settings/password', [SettingController::class, 'updatePassword'])->name('settings.password.update');
 });
 
 /*
