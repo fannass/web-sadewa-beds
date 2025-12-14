@@ -335,7 +335,7 @@ Sistem menyediakan navigasi mudah antara dashboard admin dan website publik:
 ┌─────────────────────────────────────────────────────────────┐
 │                      BACKEND                                 │
 ├─────────────────────────────────────────────────────────────┤
-│  • Laravel 11.x (PHP Framework)                             │
+│  • Laravel 12.x (PHP Framework)                             │
 │  • Laravel Breeze (Authentication)                          │
 │  • Eloquent ORM (Database)                                  │
 │  • Laravel Middleware (Authorization)                       │
