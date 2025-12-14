@@ -67,7 +67,7 @@ Rumah Sakit Khusus Ibu dan Anak (RSKIA) Sadewa menghadapi tantangan dalam menyam
 
 Sadewa Beds adalah **Sistem Informasi Ketersediaan Kamar** dengan jalur komunikasi resmi via WhatsApp.
 
-| ❌ BUKAN                       | ✅ ADALAH                      |
+| ❌ BUKAN                       | ✅ ADALAH                     |
 | ------------------------------ | ------------------------------ |
 | Sistem booking/reservasi       | Sistem informasi ketersediaan  |
 | Menyimpan data pasien          | Hanya menampilkan status kamar |
@@ -116,36 +116,36 @@ Menyediakan layanan informasi ketersediaan kamar rawat inap yang akurat, real-ti
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        SADEWA BEDS                               │
+│                        SADEWA BEDS                              │
 ├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
+│                                                                 │
 │  ┌──────────────┐         ┌──────────────┐                      │
 │  │   PUBLIC     │         │    ADMIN     │                      │
 │  │   (User)     │         │  (Petugas)   │                      │
 │  └──────┬───────┘         └──────┬───────┘                      │
-│         │                        │                               │
-│         ▼                        ▼                               │
-│  ┌─────────────────────────────────────────┐                    │
-│  │           LARAVEL APPLICATION            │                    │
-│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐   │                    │
-│  │  │ Routes  │ │ Control │ │  Views  │   │                    │
-│  │  │         │ │   lers  │ │ (Blade) │   │                    │
-│  │  └────┬────┘ └────┬────┘ └────┬────┘   │                    │
-│  │       │           │           │         │                    │
-│  │       ▼           ▼           ▼         │                    │
-│  │  ┌─────────────────────────────────┐   │                    │
-│  │  │      ELOQUENT ORM (Models)      │   │                    │
-│  │  └────────────────┬────────────────┘   │                    │
-│  └───────────────────┼────────────────────┘                    │
+│         │                        │                              │
+│         ▼                        ▼                              │
+│  ┌────────────────────────────────────────┐                     │
+│  │           LARAVEL APPLICATION          │                     │
+│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐   │                     │
+│  │  │ Routes  │ │ Control │ │  Views  │   │                     │
+│  │  │         │ │   lers  │ │ (Blade) │   │                     │
+│  │  └────┬────┘ └────┬────┘ └────┬────┘   │                     │
+│  │       │           │           │        │                     │
+│  │       ▼           ▼           ▼        │                     │
+│  │  ┌─────────────────────────────────┐   │                     │
+│  │  │      ELOQUENT ORM (Models)      │   │                     │
+│  │  └────────────────┬────────────────┘   │                     │
+│  └───────────────────┼────────────────────┘                     │
 │                      │                                          │
 │                      ▼                                          │
 │  ┌─────────────────────────────────────────┐                    │
-│  │           MySQL / SQLite                 │                    │
-│  │  ┌────────┐ ┌────────┐ ┌────────────┐  │                    │
-│  │  │ rooms  │ │ audits │ │ room_types │  │                    │
-│  │  └────────┘ └────────┘ └────────────┘  │                    │
+│  │           MySQL / SQLite                │                    │ 
+│  │  ┌────────┐ ┌────────┐ ┌────────────┐   │                    │
+│  │  │ rooms  │ │ audits │ │ room_types │   │                    │
+│  │  └────────┘ └────────┘ └────────────┘   │                    │
 │  └─────────────────────────────────────────┘                    │
-│                                                                  │
+│                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -191,12 +191,12 @@ Menyediakan layanan informasi ketersediaan kamar rawat inap yang akurat, real-ti
 ### User Flow
 
 ```
-┌─────────┐     ┌────────────┐     ┌─────────────┐     ┌──────────┐
+┌─────────┐      ┌────────────┐     ┌─────────────┐     ┌──────────┐
 │Homepage │ ──▶ │Daftar Kamar│ ──▶ │Detail Kamar │ ──▶ │ Informasi│
 │         │     │            │     │             │     │ Lengkap  │
 └─────────┘     └────────────┘     └─────────────┘     └──────────┘
-     │                                    │
-     │          ┌─────────────┐          │
+     │                                     │
+     │          ┌─────────────┐            │
      └────────▶ │Tentang Layanan│◀────────┘
                 └─────────────┘
 ```
@@ -323,7 +323,7 @@ Sistem menyediakan navigasi mudah antara dashboard admin dan website publik:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      FRONTEND                                │
+│                      FRONTEND                               │
 ├─────────────────────────────────────────────────────────────┤
 │  • Blade Templating (Laravel)                               │
 │  • Tailwind CSS (via Vite)                                  │
@@ -333,7 +333,7 @@ Sistem menyediakan navigasi mudah antara dashboard admin dan website publik:
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│                      BACKEND                                 │
+│                      BACKEND                                │
 ├─────────────────────────────────────────────────────────────┤
 │  • Laravel 12.x (PHP Framework)                             │
 │  • Laravel Breeze (Authentication)                          │
@@ -342,7 +342,7 @@ Sistem menyediakan navigasi mudah antara dashboard admin dan website publik:
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│                      DATABASE                                │
+│                      DATABASE                               │
 ├─────────────────────────────────────────────────────────────┤
 │  • SQLite (Development) / MySQL (Production)                │
 │  • Migrations (Schema Management)                           │
@@ -350,7 +350,7 @@ Sistem menyediakan navigasi mudah antara dashboard admin dan website publik:
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│                      TOOLS                                   │
+│                      TOOLS                                  │
 ├─────────────────────────────────────────────────────────────┤
 │  • Vite (Asset Bundling)                                    │
 │  • NPM (Package Manager)                                    │
@@ -433,7 +433,7 @@ sadewa-beds/
 ├──────────────────┤       ├──────────────────┤
 │ id (PK)          │       │ id (PK)          │
 │ name             │       │ name             │
-│ email            │◀──┐   │ room_type        │
+│ email            │◀──┐   │ room_type       │
 │ password         │   │   │ status           │
 │ role             │   │   │ floor            │
 │ created_at       │   │   │ bed_count        │
